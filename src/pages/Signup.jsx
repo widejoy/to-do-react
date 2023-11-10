@@ -47,7 +47,7 @@ export default function Signup() {
           <Form.Label>Password</Form.Label>
           <Form.Control type="password" ref={passRef} placeholder="password" id="passbox" />
         </Form.Group>
-        Already have an account? Click here to <a href="http://google.com">login</a>
+        Already have an account? Click here to <a href="/login">login</a>
         <br />
         <br />
         <Button
