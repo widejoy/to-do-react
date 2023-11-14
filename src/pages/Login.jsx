@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Container, Form, Button, Spinner, Alert } from "react-bootstrap";
 import { signInWithEmailAndPassword} from 'firebase/auth';
 import { auth } from '../lib/firebase';
@@ -9,6 +10,7 @@ export default function Login() {
   const [isLoading, setisLoading] = useState(false);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
+  const nav = useNavigate()
 
   const handleLogin = () => {
     setisLoading(true);
@@ -18,6 +20,8 @@ export default function Login() {
     signInWithEmailAndPassword(auth, emailRef.current.value, passRef.current.value)
       .then(() => {
         setSuccess("Login successful!");
+        nav('/homepage')
+
       })
       .catch((err) => {
         setError("Error logging in: " + err.message);
